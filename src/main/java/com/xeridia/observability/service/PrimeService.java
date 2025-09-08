@@ -1,6 +1,7 @@
 package com.xeridia.observability.service;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import io.quarkus.logging.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,10 +9,12 @@ import java.util.List;
 @ApplicationScoped
 public class PrimeService {
 
+
     public List<Long> getPrimes(long max) {
+        Log.info("Calculating prime numbers under" + max);
         List<Long> results = new ArrayList<>();
         for(long i = 1; i <= max; i++) {
-            if(testPrimeNumber(i)) {
+            if(isPrime(i)) {
                 results.add(i);
             }
         }
@@ -19,7 +22,8 @@ public class PrimeService {
     }
 
     public boolean isPrime(long number) {
-        if (number == 1 || number % 2 == 0) {
+        Log.info("Checking whether " + number + " is prime or not");
+        if (number == 1 || (number > 2 && number % 2 == 0)) {
             return false;
         } else {
             return testPrimeNumber(number);
