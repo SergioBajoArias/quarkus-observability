@@ -67,6 +67,10 @@
             <artifactId>quarkus-infinispan-embedded</artifactId>
             <version>${infinispan.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-websockets-next</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>io.quarkus</groupId>
